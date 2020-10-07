@@ -1,0 +1,81 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    finalizers:
+    - kubernetes.io/pv-protection
+    labels:
+      node: worker
+    name: pv1
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 10Gi
+    local:
+      path: /mnt/volumes/1
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - formc-k8s1n1.hi.inet
+    persistentVolumeReclaimPolicy: Recycle
+    volumeMode: Filesystem
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    finalizers:
+    - kubernetes.io/pv-protection
+    labels:
+      node: worker
+    name: pv2
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 10Gi
+    local:
+      path: /mnt/volumes/2
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - formc-k8s1n1.hi.inet
+    persistentVolumeReclaimPolicy: Recycle
+    volumeMode: Filesystem
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    finalizers:
+    - kubernetes.io/pv-protection
+    labels:
+      node: worker
+    name: pv3
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 10Gi
+    local:
+      path: /mnt/volumes/3
+    nodeAffinity:
+      required:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - formc-k8s1n1.hi.inet
+    persistentVolumeReclaimPolicy: Recycle
+    volumeMode: Filesystem
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

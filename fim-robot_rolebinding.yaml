@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1 #Aqui falla algo pero no he mirado que
+kind: RoleBinding
+metadata:
+  name: fim-robot
+  namespace: fim
+subjects:
+- kind: ServiceAccount
+  name: fim-robot
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: admin
+  apiGroup: rbac.authorization.k8s.io
